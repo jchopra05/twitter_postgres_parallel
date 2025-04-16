@@ -38,6 +38,7 @@ def remove_nulls(s):
         return s.replace('\x00','\\x00')
 
 
+'''
 def get_id_urls(url):
     '''
     Given a url, returns the corresponding id in the urls table.
@@ -64,6 +65,7 @@ def get_id_urls(url):
     id_urls = res[0]
     return id_urls
 
+'''
 
 def batch(iterable, n=1):
     '''
