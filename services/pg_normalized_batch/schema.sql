@@ -25,7 +25,6 @@ CREATE TABLE users (
     location TEXT,
     description TEXT,
     withheld_in_countries VARCHAR(2)[],
-    FOREIGN KEY (id_urls) REFERENCES urls(id_urls) DEFERRABLE INITIALLY DEFERRED
 );
 
 /*
@@ -65,8 +64,8 @@ CREATE INDEX tweets_index_withheldincountries ON tweets USING gin(withheld_in_co
 CREATE TABLE tweet_urls (
     id_tweets BIGINT,
     url TEXT,
-    PRIMARY KEY (id_tweets, id_urls),
-    FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets) DEFERRABLE INITIALLY DEFERRED,
+    PRIMARY KEY (id_tweets, url),
+    FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets) DEFERRABLE INITIALLY DEFERRED
 );
 
 
