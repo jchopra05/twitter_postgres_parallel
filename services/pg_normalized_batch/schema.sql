@@ -10,10 +10,10 @@ BEGIN;
  * inside of a tweet someone else's tweet.
  */
 CREATE TABLE users (
-    id_users BIGINT PRIMARY KEY,
+    id_users BIGINT,
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ,
-    id_urls TEXT,
+    urls TEXT,
     friends_count INTEGER,
     listed_count INTEGER,
     favourites_count INTEGER,
@@ -24,7 +24,7 @@ CREATE TABLE users (
     name TEXT,
     location TEXT,
     description TEXT,
-    withheld_in_countries VARCHAR(2)[],
+    withheld_in_countries VARCHAR(2)[]
 );
 
 /*
@@ -48,9 +48,7 @@ CREATE TABLE tweets (
     state_code VARCHAR(2),
     lang TEXT,
     place_name TEXT,
-    geo geometry,
-    FOREIGN KEY (id_users) REFERENCES users(id_users) DEFERRABLE INITIALLY DEFERRED,
-    FOREIGN KEY (in_reply_to_user_id) REFERENCES users(id_users) DEFERRABLE INITIALLY DEFERRED
+    geo geometry
 
     -- NOTE:
     -- We do not have the following foreign keys because they would require us
