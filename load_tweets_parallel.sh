@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 files=$(find data/*)
 
@@ -10,9 +10,9 @@ time echo "$files" | parallel ./load_denormalized.sh
 echo '================================================================================'
 echo 'load pg_normalized'
 echo '================================================================================'
-time echo "$files" | parallel ./load_normalized.sh
+time echo "$files" | parallel ./load_tweets.py --db "postgresql://postgres:pass@localhost:2028" --inputs {} 
 
 echo '================================================================================'
 echo 'load pg_normalized_batch'
 echo '================================================================================'
-time echo "$files" | parallel ./load_normalized_batch.sh
+time echo "$files" | parallel ./load_tweets_batch.py --db "postgresql://postgres:pass@localhost:4028" --inputs {}
