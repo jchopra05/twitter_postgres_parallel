@@ -1,7 +1,7 @@
 # Parallel Twitter in Postgres
 
 |     | sequential | parallel |
-| --- | ---------- | -------- |
+| --- | ---------- | -------- | 
 | normalized (unbatched) | ![](https://github.com/jchopra05/twitter_postgres_parallel/workflows/tests_normalized_sequential/badge.svg) | ![](https://github.com/jchopra05/twitter_postgres_parallel/workflows/tests_normalized_parallel/badge.svg) |
 | normalized (batched) | ![](https://github.com/jchopra05/twitter_postgres_parallel/workflows/tests_normalizedbatch_sequential/badge.svg) |  ![](https://github.com/jchopra05/twitter_postgres_parallel/workflows/tests_normalizedbatch_parallel/badge.svg) |
 | denormalized | ![](https://github.com/jchopra05/twitter_postgres_parallel/workflows/tests_denormalized_sequential/badge.svg) | ![](https://github.com/jchopra05/twitter_postgres_parallel/workflows/tests_denormalized_parallel/badge.svg) |
@@ -280,9 +280,9 @@ Ensure that your runtimes on the lambda server are recorded below.
 
 |                        | elapsed time (sequential) | elapsed time (parallel)   |
 | -----------------------| ------------------------- | ------------------------- |
-| `pg_normalized`        | 4m12.765s                 |                           | 
-| `pg_normalized_batch`  | 3m9.244s                  |                           | 
-| `pg_denormalized`      | 0m22.250s                 |                           | 
+| `pg_normalized`        | 8m12.765s                 | 1m51.499s                 | 
+| `pg_normalized_batch`  | 3m9.244s                  | 0m32.288s                 | 
+| `pg_denormalized`      | 0m22.250s                 | 0m7.209s                  | 
 
 Then upload a link to your forked github repo on sakai.
 
