@@ -119,7 +119,6 @@ def insert_tweet(connection,tweet):
                ( id_users 
                , created_at 
                , updated_at 
-               , id_urls 
                , friends_count 
                , listed_count 
                , favourites_count 
@@ -203,6 +202,7 @@ def insert_tweet(connection,tweet):
             text = tweet['extended_tweet']['full_text']
         except:
             text = tweet['text']
+        text = remove_nulls(text)
 
         try:
             country_code = tweet['place']['country_code'].lower()
@@ -217,7 +217,7 @@ def insert_tweet(connection,tweet):
             state_code = None
 
         try:
-            place_name = tweet['place']['full_name']
+            place_name = remove_nulls(tweet['place']['full_name']) 
         except TypeError:
             place_name = None
 

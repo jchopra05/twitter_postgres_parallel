@@ -13,7 +13,7 @@ CREATE TABLE users (
     id_users BIGINT,
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ,
-    urls TEXT,
+    url TEXT,
     friends_count INTEGER,
     listed_count INTEGER,
     favourites_count INTEGER,
@@ -71,7 +71,7 @@ CREATE TABLE tweet_mentions (
     id_tweets BIGINT,
     id_users BIGINT,
     PRIMARY KEY (id_tweets, id_users),
-    FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets) DEFERRABLE INITIALLY DEFERRED,
+    FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets) DEFERRABLE INITIALLY DEFERRED
 );
 CREATE INDEX tweet_mentions_index ON tweet_mentions(id_users);
 

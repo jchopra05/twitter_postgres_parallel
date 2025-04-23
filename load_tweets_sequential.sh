@@ -13,12 +13,12 @@ echo '==========================================================================
 echo 'load pg_normalized'
 echo '================================================================================'
 time for file in $files; do
-  ./load_tweets.py --db "postgresql://postgres:pass@localhost:3028" "--inputs=$file"
+  ./load_tweets.py --db "postgresql://postgres:pass@localhost:2029" "--inputs=$file"
 done
 
 echo '================================================================================'
 echo 'load pg_normalized_batch'
 echo '================================================================================'
 time for file in $files; do
-    python3 -u load_tweets_batch.py --db=postgresql://postgres:pass@localhost:4028/ --inputs $file
+    python3 -u load_tweets_batch.py --db=postgresql://postgres:pass@localhost:2030/ --inputs $file
 done
